@@ -1,12 +1,7 @@
-// self.addEventListener('install', function (event) {
-//   console.log('Handling fetch event for', event.request);
-// });
 const cacheName = 'restaurant-review';
 const urlsToCache = [
   '/',
-  '/css/style.css',
-  '/css/over570.css',
-  '/css/over830.css',
+  '/css/styles.css',
   '/js/dbhelper.js',
   '/js/main.js',
   '/js/restaurant_info.js',
@@ -34,26 +29,14 @@ const urlsToCache = [
 ];
 
 // Install the service worker
-self.addEventListener('install', function(event) {
-  event.waitUntil(
-    caches.open(cacheName).then(function(cache) {
-      return cache.addAll(urlsToCache);
-    })
-  );
-});
+self.addEventListener('install', event =>
+  event.waitUntil(caches.open(cacheName).then((cache) => cache.addAll(urlsToCache)))
+);
 
-// Activate
-self.addEventListener('activate', function(event) {
-  console.log('Activated');
-});
+// Activate the service worker
+self.addEventListener('activate', event => console.log('Service worker is activated'));
 
-self.addEventListener('fetch', function(event) {
-  event.respondWith(
-    caches.match(event.request).then(function(response){
-      if(response) {
-        return response;
-      }
-      return fetch(event.request);
-    })
-  );
-});
+self.addEventListener('fetch', event => event.respondWith(
+  caches.match(event.request).then((response) => response ? response : fetch(event.request)
+  )
+));
