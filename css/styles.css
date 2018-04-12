@@ -289,10 +289,6 @@ nav h1 a {
   top: 550px;
 }
 
-#reviews-container {
-  padding: 30px 40px 80px;
-}
-
 #reviews-container h2 {
   color: #f58500;
   font-size: 24pt;
@@ -372,6 +368,22 @@ nav h1 a {
 
   #restaurants-list li p {
     font-size: 13pt;
+  }
+
+  #restaurants-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  #restaurants-list li {
+    width: 300px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  #restaurants-list li {
+    width: 350px;
   }
 }
 
