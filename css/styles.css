@@ -43,6 +43,8 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
 #maincontent {
   background-color: #f3f3f3;
   min-height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 #footer {
@@ -81,7 +83,8 @@ nav h1 a {
   background-color: #eee;
   font-size: 17px;
   margin: 0;
-  width: calc(50% - 80px);
+ /* width: calc(50% - 80px);*/
+ width: 100%;
 }
 
 /* Display list items side by side */
@@ -221,24 +224,24 @@ nav h1 a {
 }
 
 .inside #map-container {
-  background: blue none repeat scroll 0 0;
-  height: 87%;
-  position: fixed;
+  height: 10%;
+  position: absolute;
   right: 0;
   top: 80px;
-  width: 50%;
+  width: 100%;
+  padding-top: 50px;
 }
 
 .inside #map {
   background-color: #ccc;
-  height: 100%;
+  /*height: 100%;*/
   width: 100%;
 }
 
 .inside #footer {
   bottom: 0;
   position: absolute;
-  width: 50%;
+  width: 100%;
 }
 
 #restaurant-name {
@@ -277,8 +280,13 @@ nav h1 a {
 #restaurant-container, #reviews-container {
   border-bottom: 1px solid #d9d9d9;
   border-top: 1px solid #fff;
-  padding: 140px 40px 30px;
-  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  position: relative;
+  top: 550px;
 }
 
 #reviews-container {
@@ -307,7 +315,8 @@ nav h1 a {
   overflow: hidden;
   padding: 0 20px 20px;
   position: relative;
-  width: 85%;
+  /*width: 85%;*/
+  padding-top: 10px;
 }
 
 #reviews-list li p {
@@ -364,6 +373,5 @@ nav h1 a {
   #restaurants-list li p {
     font-size: 13pt;
   }
-
 }
 
